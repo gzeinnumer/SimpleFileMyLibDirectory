@@ -35,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
             String fileName = "/MyFile.txt";
             String saveTo = "/Folder_File";
             if(FGFile.initFile(fileName, saveTo,data)){
-                Toast.makeText(this, "File berhasil dibuat", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "MyFile.txt berhasil dibuat", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "File gagal dibuat", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "MyFile.txt gagal dibuat", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -45,9 +45,10 @@ public class MainActivity extends AppCompatActivity {
         binding.btnIsFileExists.setOnClickListener(v -> {
             //check is MyFile.txt exists
             boolean isExists = FGFile.isFileExists("/Folder_File/MyFile.txt");
-            Toast.makeText(MainActivity.this, "file isExists status : "+isExists, Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "MyFile.txt isExists status : "+isExists, Toast.LENGTH_SHORT).show();
         });
 
+        //todo 16
         binding.btnReadFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //todo 17
         binding.btnAppentFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,23 +68,23 @@ public class MainActivity extends AppCompatActivity {
 
                     //function untuk menambah text ke file yang sudah dibuat sebelumnya
                     if(FGFile.appentText(path, messages)){
-                        Toast.makeText(getApplicationContext(), "Line baru ditambah ke file", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Line baru ditambah ke MyFile.txt", Toast.LENGTH_SHORT).show();
 
                     } else {
                         Toast.makeText(getApplicationContext(), "Ada error ketika add pesan", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(getApplicationContext(), "File tidak ditemukan", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "MyFile.txt tidak ditemukan", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
 
-        //todo 16
+        //todo 18
         binding.btnDeleteFile.setOnClickListener(v -> {
             //delete MyFile.txt
             boolean isDeleted = FGFile.deleteDir("/Folder_File/MyFile.txt");
-            Toast.makeText(MainActivity.this, "file dihapus status: "+isDeleted, Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "MyFile.txt dihapus status: "+isDeleted, Toast.LENGTH_SHORT).show();
         });
     }
 }
